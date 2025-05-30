@@ -1,0 +1,24 @@
+Bài 6.1
+- What happens if users choose “Cancel”?:
+***Khi người dùng nhấn "Cancel" trong JOptionPane.showConfirmDialog, biến option sẽ nhận giá trị JOptionPane.CANCEL_OPTION (tương đương 2).
+***Tuy nhiên, code hiện tại chỉ kiểm tra option == JOptionPane.YES_OPTION, nên nếu người dùng chọn "Cancel", chương trình sẽ xử lý nó giống như khi chọn "No", vì biểu thức điều kiện: (option == JOptionPane.YES_OPTION ? "Yes" : "No")
+-JOptionPane.NO_OPTION có giá trị 1.
+-JOptionPane.CANCEL_OPTION có giá trị 2.
+Vì cả hai giá trị này khác JOptionPane.YES_OPTION (giá trị 0), chúng đều khiến chương trình hiển thị "No".
+
+- How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do”
+and “I don’t”:
+import javax.swing.JOptionPane;
+public class ChoosingOption {
+	public static void main(String[] args) {
+		int option = JOptionPane.showConfirmDialog(null, "Do you want to change to the first class ticket?", "Select an Option", JOptionPane.YES_NO_OPTION);
+		if(option == JOptionPane.YES_OPTION) {
+			JOptionPane.showMessageDialog(null, "You 've chosen: Yes");
+		} else {
+			JOptionPane.showMessageDialog(null, "You 've chosen: No");
+		}
+		System.exit(0);
+	}
+}
+
+
